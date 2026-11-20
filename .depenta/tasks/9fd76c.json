@@ -2,12 +2,12 @@
   "id": "9fd76c",
   "title": "ISS-003: Implement Product catalog entity, tracking rules, and CRUD UI",
   "description": "See .issues/ISS-003-product-catalog.yaml",
-  "status": "todo",
+  "status": "done",
   "priority": "high",
   "depends_on": [
     "18839b",
     "c98d27"
   ],
   "created_at": 1795186072,
-  "updated_at": 1795186072
+  "updated_at": 1795187163
 }

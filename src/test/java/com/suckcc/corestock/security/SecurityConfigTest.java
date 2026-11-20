@@ -39,6 +39,6 @@ class SecurityConfigTest {
             .andExpect(status().isForbidden());
 
         mockMvc.perform(get("/products/new").with(user("admin").roles("ADMIN")))
-            .andExpect(status().isNotFound());
+            .andExpect(status().isOk());
     }
 }

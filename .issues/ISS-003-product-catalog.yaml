@@ -1,7 +1,7 @@
 id: ISS-003
 title: "Implement Product catalog entity, tracking rules, and CRUD UI"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-001", "ISS-002"]
 blocks: ["ISS-005", "ISS-012"]
