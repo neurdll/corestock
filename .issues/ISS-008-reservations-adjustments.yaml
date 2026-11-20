@@ -1,0 +1,26 @@
+id: ISS-008
+title: "Implement stock reservation (commit/release) and mandatory-reason adjustments"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-005"]
+blocks: ["ISS-010", "ISS-011"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/inventory/AdjustmentCommand.java"
+    - "src/main/java/com/suckcc/corestock/inventory/ReservationCommand.java"
+    - "src/main/java/com/suckcc/corestock/inventory/StockControlService.java"
+    - "src/test/java/com/suckcc/corestock/inventory/StockControlServiceTest.java"
+  forbidden_changes:
+    - "Do not allow adjustments without a non-blank reason code/note."
+
+acceptance_criteria:
+  - "Commit/release adjusts committedQty while enforcing 0 <= committedQty <= physicalQty and transitions SerialNumber between AVAILABLE and RESERVED."
+  - "Adjustments reject blank reason, prevent negative physical/available stock, and append immutable InventoryMovement (ADJUSTMENT)."
+  - "StockControlServiceTest covers over-reservation rejection, release, and positive/negative adjustments."
+
+github:
+  issue_number: 8
+  pr_number: null
+  labels: ["enhancement", "area/floor-ops"]

@@ -1,0 +1,29 @@
+id: ISS-002
+title: "Add Spring Security form login with ADMIN and OPERATOR roles"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-001"]
+blocks: ["ISS-003", "ISS-004"]
+
+scope:
+  files_to_touch:
+    - "pom.xml"
+    - "src/main/java/com/suckcc/corestock/security/SecurityConfig.java"
+    - "src/main/java/com/suckcc/corestock/security/AppUser.java"
+    - "src/main/java/com/suckcc/corestock/security/AppUserRepository.java"
+    - "src/main/resources/templates/login.html"
+    - "src/test/java/com/suckcc/corestock/security/SecurityConfigTest.java"
+  forbidden_changes:
+    - "Do not implement JWT, OAuth2, or multi-tenant auth."
+    - "Do not add custom user registration/password-reset flows."
+
+acceptance_criteria:
+  - "Form login protects all operational routes; /login and static assets are public."
+  - "ADMIN and OPERATOR roles load from users table via UserDetailsService with BCrypt."
+  - "SecurityConfigTest verifies unauthenticated redirect, OPERATOR access, and ADMIN-only catalog restrictions."
+
+github:
+  issue_number: 2
+  pr_number: null
+  labels: ["enhancement", "area/security"]

@@ -1,0 +1,27 @@
+id: ISS-010
+title: "Implement filterable Kardex ledger query and Thymeleaf audit view"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-006", "ISS-007", "ISS-008", "ISS-009"]
+blocks: ["ISS-013"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/kardex/KardexFilter.java"
+    - "src/main/java/com/suckcc/corestock/kardex/KardexQueryService.java"
+    - "src/main/java/com/suckcc/corestock/kardex/KardexController.java"
+    - "src/main/resources/templates/kardex/list.html"
+    - "src/test/java/com/suckcc/corestock/kardex/KardexControllerTest.java"
+  forbidden_changes:
+    - "Do not add edit or delete endpoints for movements."
+
+acceptance_criteria:
+  - "Filters movements by product/SKU, warehouse, lotNumber, serialNumber, and date range ordered newest-first."
+  - "Thymeleaf view renders filter form and immutable ledger table including operator, referenceDoc, qty, and unitCost."
+  - "KardexControllerTest verifies combined filter criteria."
+
+github:
+  issue_number: 10
+  pr_number: null
+  labels: ["enhancement", "area/kardex"]

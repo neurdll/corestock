@@ -1,0 +1,12 @@
+{
+  "id": "a1f95b",
+  "title": "ISS-007: Implement outbound picking with FIFO/FEFO lot allocation and concurrency lock",
+  "description": "See .issues/ISS-007-outbound-dispatch.yaml",
+  "status": "todo",
+  "priority": "high",
+  "depends_on": [
+    "e47526"
+  ],
+  "created_at": 1795186086,
+  "updated_at": 1795186086
+}

@@ -1,0 +1,26 @@
+id: ISS-007
+title: "Implement outbound picking with FIFO/FEFO lot allocation and concurrency lock"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-005"]
+blocks: ["ISS-009", "ISS-010", "ISS-011"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/inventory/DispatchCommand.java"
+    - "src/main/java/com/suckcc/corestock/inventory/LotAllocator.java"
+    - "src/main/java/com/suckcc/corestock/inventory/DispatchService.java"
+    - "src/test/java/com/suckcc/corestock/inventory/DispatchServiceTest.java"
+  forbidden_changes:
+    - "Do not build a SalesOrder entity; store order reference as referenceDoc string."
+
+acceptance_criteria:
+  - "LotAllocator orders candidate lots by FEFO (earliest expiryDate first) falling back to FIFO (createdAt/id)."
+  - "Dispatch enforces availableQty >= requestedQty under PESSIMISTIC_WRITE lock and updates SerialNumber to SOLD."
+  - "Multithreaded concurrency test proves two simultaneous dispatches cannot oversell stock or produce negative balances."
+
+github:
+  issue_number: 7
+  pr_number: null
+  labels: ["enhancement", "area/floor-ops"]

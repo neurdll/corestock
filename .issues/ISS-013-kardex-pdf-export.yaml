@@ -1,0 +1,27 @@
+id: ISS-013
+title: "Add Kardex PDF audit report export via OpenPDF"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-010"]
+blocks: []
+
+scope:
+  files_to_touch:
+    - "pom.xml"
+    - "src/main/java/com/suckcc/corestock/kardex/KardexPdfExporter.java"
+    - "src/main/java/com/suckcc/corestock/kardex/KardexController.java"
+    - "src/main/resources/templates/kardex/list.html"
+    - "src/test/java/com/suckcc/corestock/kardex/KardexPdfExporterTest.java"
+  forbidden_changes:
+    - "Do not duplicate filter logic; reuse KardexQueryService from ISS-010."
+
+acceptance_criteria:
+  - "GET /kardex/export.pdf streams an OpenPDF-generated document matching active KardexFilter criteria."
+  - "PDF header includes applied filters, timestamp, and tabular movement rows."
+  - "KardexPdfExporterTest asserts valid %PDF- signature and non-empty rendered output."
+
+github:
+  issue_number: 13
+  pr_number: null
+  labels: ["enhancement", "area/kardex"]

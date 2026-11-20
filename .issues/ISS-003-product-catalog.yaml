@@ -1,0 +1,30 @@
+id: ISS-003
+title: "Implement Product catalog entity, tracking rules, and CRUD UI"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-001", "ISS-002"]
+blocks: ["ISS-005", "ISS-012"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/catalog/TrackingType.java"
+    - "src/main/java/com/suckcc/corestock/catalog/Product.java"
+    - "src/main/java/com/suckcc/corestock/catalog/ProductRepository.java"
+    - "src/main/java/com/suckcc/corestock/catalog/ProductController.java"
+    - "src/main/resources/templates/products/list.html"
+    - "src/main/resources/templates/products/form.html"
+    - "src/test/java/com/suckcc/corestock/catalog/ProductControllerTest.java"
+  forbidden_changes:
+    - "Do not add a separate Category or UoM table unless strictly needed; use validated fields on Product."
+    - "Do not allow direct editing of averageCost from UI."
+
+acceptance_criteria:
+  - "Product enforces unique SKU, name, category, uom, trackingType (STANDARD, LOT, SERIAL), and non-negative averageCost."
+  - "ADMIN can create/update products via Thymeleaf form with Bean Validation error rendering."
+  - "ProductControllerTest verifies SKU uniqueness validation and role access."
+
+github:
+  issue_number: 3
+  pr_number: null
+  labels: ["enhancement", "area/catalog"]

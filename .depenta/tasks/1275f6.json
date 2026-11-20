@@ -1,0 +1,15 @@
+{
+  "id": "1275f6",
+  "title": "ISS-011: Build Thymeleaf floor operations UI with HID barcode scanner support",
+  "description": "See .issues/ISS-011-thymeleaf-hid-ui.yaml",
+  "status": "todo",
+  "priority": "high",
+  "depends_on": [
+    "746e21",
+    "a1f95b",
+    "c5cc1a",
+    "f344f1"
+  ],
+  "created_at": 1795186100,
+  "updated_at": 1795186100
+}

@@ -1,0 +1,15 @@
+{
+  "id": "16b8db",
+  "title": "ISS-010: Implement filterable Kardex ledger query and Thymeleaf audit view",
+  "description": "See .issues/ISS-010-kardex-query-ui.yaml",
+  "status": "todo",
+  "priority": "high",
+  "depends_on": [
+    "746e21",
+    "a1f95b",
+    "c5cc1a",
+    "f344f1"
+  ],
+  "created_at": 1795186099,
+  "updated_at": 1795186099
+}

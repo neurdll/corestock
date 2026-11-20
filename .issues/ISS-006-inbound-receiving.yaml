@@ -1,0 +1,25 @@
+id: ISS-006
+title: "Implement inbound receiving with weighted-average cost, lot, and serial intake"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-005"]
+blocks: ["ISS-009", "ISS-010", "ISS-011"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/inventory/ReceiveCommand.java"
+    - "src/main/java/com/suckcc/corestock/inventory/ReceivingService.java"
+    - "src/test/java/com/suckcc/corestock/inventory/ReceivingServiceTest.java"
+  forbidden_changes:
+    - "Do not build a PurchaseOrder entity; store PO number as referenceDoc string."
+
+acceptance_criteria:
+  - "Receiving validates tracking rules: LOT requires lotNumber, SERIAL requires exact serial list matching quantity, STANDARD forbids lot/serial mismatch."
+  - "Updates Product.averageCost atomically via StockMath, increments InventoryBalance.physicalQty, creates SerialNumbers (AVAILABLE), and appends InventoryMovement (INBOUND)."
+  - "Concurrent receiving test verifies no lost updates under simultaneous receipts."
+
+github:
+  issue_number: 6
+  pr_number: null
+  labels: ["enhancement", "area/floor-ops"]

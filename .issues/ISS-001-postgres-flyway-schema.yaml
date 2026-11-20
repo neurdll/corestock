@@ -1,0 +1,27 @@
+id: ISS-001
+title: "Configure PostgreSQL 18 Compose and Flyway core DDL migration"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: []
+blocks: ["ISS-002"]
+
+scope:
+  files_to_touch:
+    - "compose.yaml"
+    - "src/main/resources/application.properties"
+    - "src/main/resources/db/migration/V1__init_schema.sql"
+    - "src/test/resources/application-test.properties"
+  forbidden_changes:
+    - "Do not add JPA entity classes or business logic in this issue."
+    - "Do not model StorageLocation as 5 separate normalized tables."
+
+acceptance_criteria:
+  - "compose.yaml uses postgres:18-alpine and starts cleanly with Spring Boot Docker Compose support."
+  - "V1__init_schema.sql creates users, products, warehouses, storage_locations, inventory_balances (with version), serial_numbers, inventory_movements, transfer_orders, and transfer_order_lines."
+  - "./mvnw test passes context load with Flyway migration applied."
+
+github:
+  issue_number: 1
+  pr_number: null
+  labels: ["chore", "area/db"]

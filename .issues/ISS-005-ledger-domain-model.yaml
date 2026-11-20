@@ -1,0 +1,34 @@
+id: ISS-005
+title: "Define InventoryBalance, SerialNumber, immutable InventoryMovement, and StockMath"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-003", "ISS-004"]
+blocks: ["ISS-006", "ISS-007", "ISS-008", "ISS-012"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/inventory/InventoryBalance.java"
+    - "src/main/java/com/suckcc/corestock/inventory/InventoryBalanceRepository.java"
+    - "src/main/java/com/suckcc/corestock/inventory/SerialNumber.java"
+    - "src/main/java/com/suckcc/corestock/inventory/SerialStatus.java"
+    - "src/main/java/com/suckcc/corestock/inventory/SerialNumberRepository.java"
+    - "src/main/java/com/suckcc/corestock/inventory/InventoryMovement.java"
+    - "src/main/java/com/suckcc/corestock/inventory/MovementType.java"
+    - "src/main/java/com/suckcc/corestock/inventory/InventoryMovementRepository.java"
+    - "src/main/java/com/suckcc/corestock/inventory/StockMath.java"
+    - "src/test/java/com/suckcc/corestock/inventory/StockMathTest.java"
+  forbidden_changes:
+    - "Do not expose setter or update/delete methods on InventoryMovement."
+    - "Do not add service orchestration logic here."
+
+acceptance_criteria:
+  - "InventoryBalance includes @Version optimistic lock, physicalQty, committedQty, lotNumber, and expiryDate."
+  - "InventoryBalanceRepository provides @Lock(PESSIMISTIC_WRITE) lookup for concurrent mutations."
+  - "StockMath pure functions compute availableQty = physical - committed and weighted average cost accurately."
+  - "StockMathTest covers zero-stock average cost, positive intake averaging, and negative-availability rejection."
+
+github:
+  issue_number: 5
+  pr_number: null
+  labels: ["enhancement", "area/ledger"]

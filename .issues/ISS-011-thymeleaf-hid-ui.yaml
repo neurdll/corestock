@@ -1,0 +1,31 @@
+id: ISS-011
+title: "Build Thymeleaf floor operations UI with HID barcode scanner support"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-006", "ISS-007", "ISS-008", "ISS-009"]
+blocks: []
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/web/OperationsController.java"
+    - "src/main/resources/templates/layout.html"
+    - "src/main/resources/templates/ops/dashboard.html"
+    - "src/main/resources/templates/ops/receive.html"
+    - "src/main/resources/templates/ops/dispatch.html"
+    - "src/main/resources/templates/ops/adjust.html"
+    - "src/main/resources/templates/ops/transfers.html"
+    - "src/main/resources/static/js/scanner.js"
+    - "src/test/java/com/suckcc/corestock/web/OperationsControllerTest.java"
+  forbidden_changes:
+    - "Do not add npm/Node build tooling or SPA frameworks; keep vanilla JS + Thymeleaf."
+
+acceptance_criteria:
+  - "Dashboard displays physical, committed, and available stock per warehouse/location/lot."
+  - "scanner.js captures rapid HID keyboard scan bursts ending in Enter/Tab, resolves SKU/serial fields without full-page friction, and accumulates scanned serials."
+  - "OperationsControllerTest verifies receive, dispatch, adjustment, and transfer POST workflows with flash feedback."
+
+github:
+  issue_number: 11
+  pr_number: null
+  labels: ["enhancement", "area/ui"]

@@ -1,0 +1,27 @@
+id: ISS-012
+title: "Add Code 128 barcode label generation via ZXing"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-003", "ISS-005"]
+blocks: []
+
+scope:
+  files_to_touch:
+    - "pom.xml"
+    - "src/main/java/com/suckcc/corestock/label/BarcodeService.java"
+    - "src/main/java/com/suckcc/corestock/label/BarcodeController.java"
+    - "src/main/resources/templates/labels/print.html"
+    - "src/test/java/com/suckcc/corestock/label/BarcodeServiceTest.java"
+  forbidden_changes:
+    - "Do not embed heavy reporting suites; use ZXing core + javase only."
+
+acceptance_criteria:
+  - "Generates valid Code 128 PNG image bytes for SKU or SKU+Lot payloads."
+  - "Print label view displays printable label layout with SKU, product name, lot/expiry, and Code 128 barcode."
+  - "BarcodeServiceTest decodes generated PNG bytes back via ZXing Reader to assert exact payload round-trip."
+
+github:
+  issue_number: 12
+  pr_number: null
+  labels: ["enhancement", "area/barcodes"]

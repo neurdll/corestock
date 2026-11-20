@@ -1,0 +1,13 @@
+{
+  "id": "e47526",
+  "title": "ISS-005: Define InventoryBalance, SerialNumber, immutable InventoryMovement, and StockMath",
+  "description": "See .issues/ISS-005-ledger-domain-model.yaml",
+  "status": "todo",
+  "priority": "critical",
+  "depends_on": [
+    "9099ab",
+    "9fd76c"
+  ],
+  "created_at": 1795186079,
+  "updated_at": 1795186079
+}

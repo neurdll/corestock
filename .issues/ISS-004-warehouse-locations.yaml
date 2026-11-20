@@ -1,0 +1,29 @@
+id: ISS-004
+title: "Implement Warehouse and composite StorageLocation CRUD"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-001", "ISS-002"]
+blocks: ["ISS-005"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/warehouse/Warehouse.java"
+    - "src/main/java/com/suckcc/corestock/warehouse/StorageLocation.java"
+    - "src/main/java/com/suckcc/corestock/warehouse/WarehouseRepository.java"
+    - "src/main/java/com/suckcc/corestock/warehouse/StorageLocationRepository.java"
+    - "src/main/java/com/suckcc/corestock/warehouse/WarehouseController.java"
+    - "src/main/resources/templates/warehouses/list.html"
+    - "src/test/java/com/suckcc/corestock/warehouse/WarehouseControllerTest.java"
+  forbidden_changes:
+    - "Do not create separate Zone, Aisle, Rack, and Bin entity tables."
+
+acceptance_criteria:
+  - "StorageLocation belongs to a Warehouse and stores zone, aisle, rack, bin, and unique composite location code."
+  - "Thymeleaf views allow creating warehouses and bin locations."
+  - "WarehouseControllerTest verifies unique location code enforcement per warehouse."
+
+github:
+  issue_number: 4
+  pr_number: null
+  labels: ["enhancement", "area/wms"]

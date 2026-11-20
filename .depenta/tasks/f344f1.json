@@ -1,0 +1,13 @@
+{
+  "id": "f344f1",
+  "title": "ISS-009: Implement two-phase inter-warehouse transfers (EN_TRANSITO)",
+  "description": "See .issues/ISS-009-two-phase-transfers.yaml",
+  "status": "todo",
+  "priority": "high",
+  "depends_on": [
+    "746e21",
+    "a1f95b"
+  ],
+  "created_at": 1795186094,
+  "updated_at": 1795186094
+}

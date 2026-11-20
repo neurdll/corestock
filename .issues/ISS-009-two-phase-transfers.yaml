@@ -1,0 +1,28 @@
+id: ISS-009
+title: "Implement two-phase inter-warehouse transfers (EN_TRANSITO)"
+parent_plan: "corestock-mvp"
+status: "todo"
+
+depends_on: ["ISS-006", "ISS-007"]
+blocks: ["ISS-010", "ISS-011"]
+
+scope:
+  files_to_touch:
+    - "src/main/java/com/suckcc/corestock/transfer/TransferOrder.java"
+    - "src/main/java/com/suckcc/corestock/transfer/TransferOrderLine.java"
+    - "src/main/java/com/suckcc/corestock/transfer/TransferStatus.java"
+    - "src/main/java/com/suckcc/corestock/transfer/TransferOrderRepository.java"
+    - "src/main/java/com/suckcc/corestock/transfer/TransferService.java"
+    - "src/test/java/com/suckcc/corestock/transfer/TransferServiceTest.java"
+  forbidden_changes:
+    - "Do not move stock directly from origin to destination in one step; must pass through IN_TRANSIT."
+
+acceptance_criteria:
+  - "Phase 1 (ship): locks origin balance, deducts origin physicalQty, marks serials IN_TRANSIT, sets order IN_TRANSIT, logs TRANSFER_OUT."
+  - "Phase 2 (receive): locks transfer order + destination balance, credits destination location, marks serials AVAILABLE, sets order COMPLETED, logs TRANSFER_IN."
+  - "Concurrent Phase 2 test ensures a transfer order cannot be received twice."
+
+github:
+  issue_number: 9
+  pr_number: null
+  labels: ["enhancement", "area/transfers"]

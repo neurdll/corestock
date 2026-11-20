@@ -1,0 +1,12 @@
+{
+  "id": "c5cc1a",
+  "title": "ISS-008: Implement stock reservation (commit/release) and mandatory-reason adjustments",
+  "description": "See .issues/ISS-008-reservations-adjustments.yaml",
+  "status": "todo",
+  "priority": "medium",
+  "depends_on": [
+    "e47526"
+  ],
+  "created_at": 1795186088,
+  "updated_at": 1795186088
+}

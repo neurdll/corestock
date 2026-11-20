@@ -1,0 +1,12 @@
+{
+  "id": "c98d27",
+  "title": "ISS-002: Add Spring Security form login with ADMIN and OPERATOR roles",
+  "description": "See .issues/ISS-002-spring-security-rbac.yaml",
+  "status": "todo",
+  "priority": "critical",
+  "depends_on": [
+    "18839b"
+  ],
+  "created_at": 1795186067,
+  "updated_at": 1795186067
+}
