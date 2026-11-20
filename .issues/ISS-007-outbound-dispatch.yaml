@@ -1,7 +1,7 @@
 id: ISS-007
 title: "Implement outbound picking with FIFO/FEFO lot allocation and concurrency lock"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-005"]
 blocks: ["ISS-009", "ISS-010", "ISS-011"]
