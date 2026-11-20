@@ -1,7 +1,7 @@
 id: ISS-012
 title: "Add Code 128 barcode label generation via ZXing"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-003", "ISS-005"]
 blocks: []
