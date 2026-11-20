@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kardex Ledger — CoreStock</title>
+</head>
+<body>
+<main>
+    <h1>Immutable Kardex Ledger</h1>
+    <form th:action="@{/kardex}" method="get">
+        <label>SKU <input type="text" name="sku" th:value="${filter.sku}"></label>
+        <label>Warehouse
+            <select name="warehouseId">
+                <option value="">All</option>
+                <option th:each="w : ${warehouses}" th:value="${w.id}" th:text="${w.code + ' - ' + w.name}"
+                        th:selected="${filter.warehouseId != null and filter.warehouseId == w.id}"></option>
+            </select>
+        </label>
+        <label>Lot <input type="text" name="lotNumber" th:value="${filter.lotNumber}"></label>
+        <label>Serial <input type="text" name="serialCode" th:value="${filter.serialCode}"></label>
+        <label>From <input type="date" name="fromDate" th:value="${filter.fromDate}"></label>
+        <label>To <input type="date" name="toDate" th:value="${filter.toDate}"></label>
+        <button type="submit">Filter</button>
+    </form>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Timestamp</th><th>Type</th><th>SKU</th><th>Warehouse</th><th>Location</th>
+            <th>Lot</th><th>Serial</th><th>Qty</th><th>Unit Cost</th><th>Reference</th><th>Reason</th><th>Operator</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="m : ${movements}">
+            <td th:text="${m.occurredAt}"></td>
+            <td th:text="${m.movementType}"></td>
+            <td th:text="${m.product.sku}"></td>
+            <td th:text="${m.warehouse.code}"></td>
+            <td th:text="${m.location.code}"></td>
+            <td th:text="${m.lotNumber}"></td>
+            <td th:text="${m.serialCode}"></td>
+            <td th:text="${m.quantity}"></td>
+            <td th:text="${m.unitCost}"></td>
+            <td th:text="${m.referenceDoc}"></td>
+            <td th:text="${m.reason}"></td>
+            <td th:text="${m.operatorUsername}"></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
