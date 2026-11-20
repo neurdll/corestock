@@ -23,5 +23,5 @@ acceptance_criteria:
 
 github:
   issue_number: 1
-  pr_number: null
+  pr_number: 14
   labels: ["chore", "area/db"]
