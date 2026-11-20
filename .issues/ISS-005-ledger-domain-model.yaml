@@ -1,7 +1,7 @@
 id: ISS-005
 title: "Define InventoryBalance, SerialNumber, immutable InventoryMovement, and StockMath"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-003", "ISS-004"]
 blocks: ["ISS-006", "ISS-007", "ISS-008", "ISS-012"]
