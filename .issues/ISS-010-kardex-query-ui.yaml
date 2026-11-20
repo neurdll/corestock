@@ -23,5 +23,5 @@ acceptance_criteria:
 
 github:
   issue_number: 10
-  pr_number: null
+  pr_number: 23
   labels: ["enhancement", "area/kardex"]
