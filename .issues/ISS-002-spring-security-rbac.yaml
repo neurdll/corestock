@@ -25,5 +25,5 @@ acceptance_criteria:
 
 github:
   issue_number: 2
-  pr_number: null
+  pr_number: 15
   labels: ["enhancement", "area/security"]
