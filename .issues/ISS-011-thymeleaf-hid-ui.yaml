@@ -1,7 +1,7 @@
 id: ISS-011
 title: "Build Thymeleaf floor operations UI with HID barcode scanner support"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-006", "ISS-007", "ISS-008", "ISS-009"]
 blocks: []

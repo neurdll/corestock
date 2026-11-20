@@ -16,5 +16,11 @@ public interface TransferOrderRepository extends JpaRepository<TransferOrder, Lo
     @Query("SELECT t FROM TransferOrder t WHERE t.id = :id")
     Optional<TransferOrder> findByIdForUpdate(@Param("id") Long id);
 
+    @Query("""
+        SELECT t FROM TransferOrder t
+        JOIN FETCH t.sourceWarehouse
+        JOIN FETCH t.destWarehouse
+        ORDER BY t.createdAt DESC
+        """)
     List<TransferOrder> findAllByOrderByCreatedAtDesc();
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      th:replace="~{layout :: page('Inbound Receiving', ~{::section})}">
+<body>
+<section>
+    <h1>Inbound Receiving</h1>
+    <form th:action="@{/ops/receive}" method="post" data-scan-form>
+        <label>Scan / Enter SKU
+            <input type="text" name="sku" list="skuList" data-scan-target="sku" autofocus required>
+        </label>
+        <datalist id="skuList">
+            <option th:each="p : ${products}" th:value="${p.sku}" th:label="${p.name + ' (' + p.trackingType + ')'}"></option>
+        </datalist>
+        <label>Destination Bin
+            <select name="locationId" required>
+                <option th:each="l : ${locations}" th:value="${l.id}" th:text="${l.warehouse.code + ' / ' + l.code}"></option>
+            </select>
+        </label>
+        <label>Quantity <input type="number" step="0.0001" min="0.0001" name="quantity" required></label>
+        <label>Unit Cost <input type="number" step="0.0001" min="0" name="unitCost" required></label>
+        <label>Lot Number (LOT SKUs) <input type="text" name="lotNumber"></label>
+        <label>Expiry Date <input type="date" name="expiryDate"></label>
+        <label>Scan Serials (one per line or comma-separated)
+            <textarea name="serialCodes" rows="3" data-scan-append></textarea>
+        </label>
+        <label>Reference PO <input type="text" name="referenceDoc"></label>
+        <button type="submit">Record Receipt</button>
+    </form>
+</section>
+</body>
+</html>
