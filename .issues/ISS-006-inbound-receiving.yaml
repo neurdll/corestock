@@ -1,7 +1,7 @@
 id: ISS-006
 title: "Implement inbound receiving with weighted-average cost, lot, and serial intake"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-005"]
 blocks: ["ISS-009", "ISS-010", "ISS-011"]
@@ -21,5 +21,5 @@ acceptance_criteria:
 
 github:
   issue_number: 6
-  pr_number: null
+  pr_number: 19
   labels: ["enhancement", "area/floor-ops"]

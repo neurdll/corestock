@@ -2,11 +2,11 @@
   "id": "746e21",
   "title": "ISS-006: Implement inbound receiving with weighted-average cost, lot, and serial intake",
   "description": "See .issues/ISS-006-inbound-receiving.yaml",
-  "status": "todo",
+  "status": "done",
   "priority": "high",
   "depends_on": [
     "e47526"
   ],
   "created_at": 1795186085,
-  "updated_at": 1795186085
+  "updated_at": 1795189078
 }
