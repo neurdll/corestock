@@ -2,12 +2,12 @@
   "id": "9099ab",
   "title": "ISS-004: Implement Warehouse and composite StorageLocation CRUD",
   "description": "See .issues/ISS-004-warehouse-locations.yaml",
-  "status": "todo",
+  "status": "done",
   "priority": "high",
   "depends_on": [
     "18839b",
     "c98d27"
   ],
   "created_at": 1795186074,
-  "updated_at": 1795186074
+  "updated_at": 1795188261
 }
