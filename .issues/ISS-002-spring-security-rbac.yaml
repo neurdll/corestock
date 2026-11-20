@@ -1,7 +1,7 @@
 id: ISS-002
 title: "Add Spring Security form login with ADMIN and OPERATOR roles"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-001"]
 blocks: ["ISS-003", "ISS-004"]
