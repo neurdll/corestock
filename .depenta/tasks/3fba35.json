@@ -2,12 +2,12 @@
   "id": "3fba35",
   "title": "ISS-012: Add Code 128 barcode label generation via ZXing",
   "description": "See .issues/ISS-012-code128-labels.yaml",
-  "status": "todo",
+  "status": "done",
   "priority": "medium",
   "depends_on": [
     "9fd76c",
     "e47526"
   ],
   "created_at": 1795186089,
-  "updated_at": 1795186089
+  "updated_at": 1795193930
 }
