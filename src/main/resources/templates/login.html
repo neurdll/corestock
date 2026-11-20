@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CoreStock — Sign In</title>
+</head>
+<body>
+<main>
+    <h1>CoreStock IMS / WMS</h1>
+    <p th:if="${param.error}">Invalid username or password.</p>
+    <p th:if="${param.logout}">You have been signed out.</p>
+    <form th:action="@{/login}" method="post">
+        <label>Username <input type="text" name="username" autofocus required></label>
+        <label>Password <input type="password" name="password" required></label>
+        <button type="submit">Sign In</button>
+    </form>
+</main>
+</body>
+</html>
