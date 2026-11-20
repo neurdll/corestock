@@ -1,7 +1,7 @@
 id: ISS-006
 title: "Implement inbound receiving with weighted-average cost, lot, and serial intake"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: ["ISS-005"]
 blocks: ["ISS-009", "ISS-010", "ISS-011"]
