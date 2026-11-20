@@ -27,5 +27,5 @@ acceptance_criteria:
 
 github:
   issue_number: 11
-  pr_number: null
+  pr_number: 24
   labels: ["enhancement", "area/ui"]
