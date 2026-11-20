@@ -1,7 +1,7 @@
 id: ISS-001
 title: "Configure PostgreSQL 18 Compose and Flyway core DDL migration"
 parent_plan: "corestock-mvp"
-status: "todo"
+status: "done"
 
 depends_on: []
 blocks: ["ISS-002"]

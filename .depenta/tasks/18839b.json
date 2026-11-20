@@ -2,8 +2,8 @@
   "id": "18839b",
   "title": "ISS-001: Configure PostgreSQL 18 Compose and Flyway core DDL migration",
   "description": "See .issues/ISS-001-postgres-flyway-schema.yaml",
-  "status": "todo",
+  "status": "done",
   "priority": "critical",
   "created_at": 1795186062,
-  "updated_at": 1795186062
+  "updated_at": 1795186541
 }
