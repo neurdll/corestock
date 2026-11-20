@@ -25,5 +25,5 @@ acceptance_criteria:
 
 github:
   issue_number: 4
-  pr_number: null
+  pr_number: 17
   labels: ["enhancement", "area/wms"]
