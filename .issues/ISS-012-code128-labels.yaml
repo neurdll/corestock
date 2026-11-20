@@ -23,5 +23,5 @@ acceptance_criteria:
 
 github:
   issue_number: 12
-  pr_number: null
+  pr_number: 25
   labels: ["enhancement", "area/barcodes"]
