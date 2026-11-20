@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouses & Locations — CoreStock</title>
+</head>
+<body>
+<main>
+    <h1>Warehouses & Storage Locations</h1>
+
+    <section>
+        <h2>New Warehouse</h2>
+        <form th:action="@{/warehouses}" th:object="${warehouseForm}" method="post">
+            <label>Code <input type="text" th:field="*{code}" required></label>
+            <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+            <label>Name <input type="text" th:field="*{name}" required></label>
+            <button type="submit">Create Warehouse</button>
+        </form>
+    </section>
+
+    <section th:each="w : ${warehouses}">
+        <h3 th:text="${w.code + ' — ' + w.name}"></h3>
+        <form th:action="@{/warehouses/{id}/locations(id=${w.id})}" th:object="${locationForm}" method="post">
+            <label>Zone <input type="text" th:field="*{zone}" required></label>
+            <label>Aisle <input type="text" th:field="*{aisle}" required></label>
+            <label>Rack <input type="text" th:field="*{rack}" required></label>
+            <label>Bin <input type="text" th:field="*{bin}" required></label>
+            <label>Code (optional) <input type="text" th:field="*{code}"></label>
+            <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+            <button type="submit">Add Bin</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>All Locations</h2>
+        <table>
+            <thead>
+            <tr><th>Warehouse</th><th>Code</th><th>Zone</th><th>Aisle</th><th>Rack</th><th>Bin</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="loc : ${locations}">
+                <td th:text="${loc.warehouse.code}"></td>
+                <td th:text="${loc.code}"></td>
+                <td th:text="${loc.zone}"></td>
+                <td th:text="${loc.aisle}"></td>
+                <td th:text="${loc.rack}"></td>
+                <td th:text="${loc.bin}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>
