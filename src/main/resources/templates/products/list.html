@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products — CoreStock</title>
+</head>
+<body>
+<main>
+    <h1>Product Catalog</h1>
+    <p><a th:href="@{/products/new}">New Product</a></p>
+    <table>
+        <thead>
+        <tr>
+            <th>SKU</th><th>Name</th><th>Category</th><th>UoM</th><th>Tracking</th><th>Avg Cost</th><th>Active</th><th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${products}">
+            <td th:text="${p.sku}"></td>
+            <td th:text="${p.name}"></td>
+            <td th:text="${p.category}"></td>
+            <td th:text="${p.uom}"></td>
+            <td th:text="${p.trackingType}"></td>
+            <td th:text="${p.averageCost}"></td>
+            <td th:text="${p.active}"></td>
+            <td><a th:href="@{/products/{id}/edit(id=${p.id})}">Edit</a></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Form — CoreStock</title>
+</head>
+<body>
+<main>
+    <h1 th:text="${form.id == null ? 'New Product' : 'Edit Product'}">Product</h1>
+    <form th:action="@{/products/save}" th:object="${form}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label>SKU <input type="text" th:field="*{sku}" required></label>
+        <span th:if="${#fields.hasErrors('sku')}" th:errors="*{sku}"></span>
+        <label>Name <input type="text" th:field="*{name}" required></label>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <label>Category <input type="text" th:field="*{category}" required></label>
+        <label>UoM <input type="text" th:field="*{uom}" required></label>
+        <label>Tracking
+            <select th:field="*{trackingType}">
+                <option th:each="t : ${trackingTypes}" th:value="${t}" th:text="${t}"></option>
+            </select>
+        </label>
+        <label>Active <input type="checkbox" th:field="*{active}"></label>
+        <button type="submit">Save</button>
+    </form>
+    <p><a th:href="@{/products}">Back to catalog</a></p>
+</main>
+</body>
+</html>
