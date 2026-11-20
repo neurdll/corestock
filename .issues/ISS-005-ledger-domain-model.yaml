@@ -30,5 +30,5 @@ acceptance_criteria:
 
 github:
   issue_number: 5
-  pr_number: null
+  pr_number: 18
   labels: ["enhancement", "area/ledger"]
