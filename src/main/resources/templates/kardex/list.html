@@ -21,6 +21,7 @@
         <label>From <input type="date" name="fromDate" th:value="${filter.fromDate}"></label>
         <label>To <input type="date" name="toDate" th:value="${filter.toDate}"></label>
         <button type="submit">Filter</button>
+        <a th:href="@{/kardex/export.pdf(sku=${filter.sku},warehouseId=${filter.warehouseId},lotNumber=${filter.lotNumber},serialCode=${filter.serialCode},fromDate=${filter.fromDate},toDate=${filter.toDate})}">Export PDF</a>
     </form>
 
     <table>

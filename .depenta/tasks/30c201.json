@@ -2,11 +2,11 @@
   "id": "30c201",
   "title": "ISS-013: Add Kardex PDF audit report export via OpenPDF",
   "description": "See .issues/ISS-013-kardex-pdf-export.yaml",
-  "status": "todo",
+  "status": "done",
   "priority": "medium",
   "depends_on": [
     "16b8db"
   ],
   "created_at": 1795186110,
-  "updated_at": 1795186110
+  "updated_at": 1795194991
 }
