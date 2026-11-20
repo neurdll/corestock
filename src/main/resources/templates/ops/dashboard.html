@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      th:replace="~{layout :: page('Stock Dashboard', ~{::section})}">
+<body>
+<section>
+    <h1>Live Inventory Balances</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>SKU</th><th>Product</th><th>Warehouse</th><th>Location</th><th>Lot</th><th>Expiry</th>
+            <th>Physical</th><th>Committed</th><th>Available</th><th>Avg Cost</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="b : ${balances}">
+            <td th:text="${b.product.sku}"></td>
+            <td th:text="${b.product.name}"></td>
+            <td th:text="${b.location.warehouse.code}"></td>
+            <td th:text="${b.location.code}"></td>
+            <td th:text="${b.lotNumber}"></td>
+            <td th:text="${b.expiryDate}"></td>
+            <td th:text="${b.physicalQty}"></td>
+            <td th:text="${b.committedQty}"></td>
+            <td th:text="${b.availableQty()}"></td>
+            <td th:text="${b.product.averageCost}"></td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

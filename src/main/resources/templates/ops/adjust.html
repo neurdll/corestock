@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en"
+      th:replace="~{layout :: page('Adjustments & Reservations', ~{::section})}">
+<body>
+<section>
+    <h1>Inventory Adjustments</h1>
+    <form th:action="@{/ops/adjust}" method="post">
+        <label>SKU <input type="text" name="sku" list="skuList" required></label>
+        <datalist id="skuList">
+            <option th:each="p : ${products}" th:value="${p.sku}" th:label="${p.name}"></option>
+        </datalist>
+        <label>Location
+            <select name="locationId" required>
+                <option th:each="l : ${locations}" th:value="${l.id}" th:text="${l.warehouse.code + ' / ' + l.code}"></option>
+            </select>
+        </label>
+        <label>Delta Quantity (+/-) <input type="number" step="0.0001" name="deltaQuantity" required></label>
+        <label>Lot Number (if LOT SKU) <input type="text" name="lotNumber"></label>
+        <label>Reason (mandatory) <input type="text" name="reason" required></label>
+        <label>Reference <input type="text" name="referenceDoc"></label>
+        <button type="submit">Apply Adjustment</button>
+    </form>
+
+    <h2>Stock Reservations</h2>
+    <form th:action="@{/ops/reserve}" method="post">
+        <label>Action
+            <select name="action">
+                <option value="commit">Commit (Reserve)</option>
+                <option value="release">Release</option>
+            </select>
+        </label>
+        <label>SKU <input type="text" name="sku" list="skuList" required></label>
+        <label>Location
+            <select name="locationId" required>
+                <option th:each="l : ${locations}" th:value="${l.id}" th:text="${l.warehouse.code + ' / ' + l.code}"></option>
+            </select>
+        </label>
+        <label>Quantity <input type="number" step="0.0001" min="0.0001" name="quantity" required></label>
+        <label>Lot Number <input type="text" name="lotNumber"></label>
+        <label>Serials (optional) <textarea name="serialCodes" rows="2"></textarea></label>
+        <label>Reference <input type="text" name="referenceDoc"></label>
+        <button type="submit">Update Reservation</button>
+    </form>
+</section>
+</body>
+</html>

@@ -31,5 +31,12 @@ public interface InventoryBalanceRepository extends JpaRepository<InventoryBalan
     @Query("SELECT COALESCE(SUM(b.physicalQty), 0) FROM InventoryBalance b WHERE b.product.id = :productId")
     BigDecimal sumPhysicalQtyByProductId(@Param("productId") Long productId);
 
+    @Query("""
+        SELECT b FROM InventoryBalance b
+        JOIN FETCH b.product p
+        JOIN FETCH b.location l
+        JOIN FETCH l.warehouse w
+        ORDER BY p.sku ASC, w.code ASC, l.code ASC
+        """)
     List<InventoryBalance> findAllByOrderByProductSkuAscLocationWarehouseCodeAscLocationCodeAsc();
 }
